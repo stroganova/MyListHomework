@@ -6,15 +6,15 @@ public class MyLinkedList<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new Iter<T>();
     }
 
-    private class Node<T> {
-        private T value;
-        private Node<T> next;
-        private Node<T> previos;
+    private class Node<E> {
+        private E value;
+        private Node<E> next;
+        private Node<E> previos;
 
-        public Node(T value) {
+        public Node(E value) {
             this.value = value;
         }
 
@@ -29,7 +29,7 @@ public class MyLinkedList<T> implements Iterable<T> {
     }
 
     public void addFirst(T element) {
-        Node<T> node = new Node<T>(element);
+        Node<T> node = new Node<>(element);
         if(size == 0) {
             first = last = node;
         }
@@ -41,7 +41,7 @@ public class MyLinkedList<T> implements Iterable<T> {
         size++;
     }
     public void addLast(T element) {
-        Node node = new Node(element);
+        Node<T> node = new Node<>(element);
         if(size == 0) {
             first = last = node;
         }
@@ -61,8 +61,8 @@ public class MyLinkedList<T> implements Iterable<T> {
     public boolean insert(T element, int index) {
         if (index >= size || index < 0)
             return false;
-        Node node = new Node(element);
-        Node currentNode = getNodeByIndex(index);
+        Node<T> node = new Node<>(element);
+        Node<T> currentNode = getNodeByIndex(index);
         node.previos = currentNode.previos;
         node.previos.next = node;
         node.next = currentNode;
@@ -72,7 +72,7 @@ public class MyLinkedList<T> implements Iterable<T> {
     }
 
     public boolean set(T element, int index) {
-        Node node = getNodeByIndex(index);
+        Node<T> node = getNodeByIndex(index);
         if (node == null)
             return false;
         node.value = element;
@@ -121,7 +121,7 @@ public class MyLinkedList<T> implements Iterable<T> {
     }
 
     public boolean remove(int index) {
-        Node node = getNodeByIndex(index);
+        Node<T> node = getNodeByIndex(index);
         if (node == null)
             return false;
         node.previos.next = node.next; // Предыдущий нод теперь ссылается на следующий
@@ -132,7 +132,7 @@ public class MyLinkedList<T> implements Iterable<T> {
 
     public int indexOf(T element) {
         int index = 0;
-        Node currentNode = first;
+        Node<T> currentNode = first;
         while(currentNode != null) {
             if (currentNode.value == element)
                 return index;
@@ -152,7 +152,7 @@ public class MyLinkedList<T> implements Iterable<T> {
 
     public T[] toArray() {
         T[] array = (T[]) new Object[size];
-        Node currentNode = first;
+        Node<T> currentNode = first;
         for (int i = 0; i < size; size++) {
             array[i] = (T) currentNode.value;
             currentNode = currentNode.next;
@@ -161,7 +161,7 @@ public class MyLinkedList<T> implements Iterable<T> {
     }
 
     public String toString() {
-        Node currentNode = first;
+        Node<T> currentNode = first;
         StringBuilder builder = new StringBuilder();
         builder.append("[");
         for(int i = 0; i < size - 1; i++) {
@@ -170,16 +170,16 @@ public class MyLinkedList<T> implements Iterable<T> {
             builder.append(", ");
             currentNode = currentNode.next;
         }
-        T value = (T) currentNode.value;
+        T value = currentNode.value;
         builder.append(value.toString());
         builder.append("]");
         return builder.toString();
     }
 
-    private Node getNodeByIndex(int index){
+    private Node<T> getNodeByIndex(int index){
         if (index >= size || index < 0)
             return null;
-        Node currentNode;
+        Node<T> currentNode;
         if (index < size / 2) {
             currentNode = first;
             for (int currentIndex = 0; currentIndex < index; currentIndex++)
@@ -192,14 +192,14 @@ public class MyLinkedList<T> implements Iterable<T> {
         return currentNode;
     }
 
-    private class Iter<T> implements Iterator<T>{
+    private class Iter<E> implements Iterator<E>{
 
         private int currentElement;
-        private Node<T> currentNode;
+        private Node<E> currentNode;
 
         public Iter() {
             currentElement = 0;
-            currentNode = (Node<T>) first;
+            currentNode = (Node<E>) first;
         }
         @Override
         public boolean hasNext() {
@@ -207,8 +207,8 @@ public class MyLinkedList<T> implements Iterable<T> {
         }
 
         @Override
-        public T next() {
-            T value = currentNode.value;
+        public E next() {
+            E value = currentNode.value;
             currentNode = currentNode.next;
             return value;
         }

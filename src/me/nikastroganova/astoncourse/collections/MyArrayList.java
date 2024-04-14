@@ -70,8 +70,7 @@ public class MyArrayList<T> implements Iterable<T> {
 
     private void increaseCapacity() {
         int newCapacity = (int) Math.ceil(array.length * 1.5);
-        T[] newArray = Arrays.copyOf(array, newCapacity);
-        array = newArray;
+        array = Arrays.copyOf(array, newCapacity);
     }
 
     private void moveElements(int index) {
@@ -103,7 +102,8 @@ public class MyArrayList<T> implements Iterable<T> {
     }
 
     static public <T extends Comparable<? super T>> void sort(Collection<T> collection) {
-        T[] arr = (T[]) collection.toArray();
+        T[] arr = (T[]) new Object[collection.size()];
+        arr = collection.toArray(arr);
         for(int i = 0; i < arr.length - 1; i ++) {
             for(int j = 0; j < arr.length - 1 - i; j++) {
                 if (arr[j].compareTo(arr[j + 1]) > 0) {
