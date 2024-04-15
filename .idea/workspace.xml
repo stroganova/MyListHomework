@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf129cf8-e043-44d4-a504-eb950c701d1d" name="Changes" comment="Realized MyArrayList and MyLinkedList">
+    <list default="true" id="bf129cf8-e043-44d4-a504-eb950c701d1d" name="Changes" comment="Fixed some warnings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/me/nikastroganova/astoncourse/collections/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/nikastroganova/astoncourse/collections/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/me/nikastroganova/astoncourse/collections/MyArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/nikastroganova/astoncourse/collections/MyArrayList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/nikastroganova/astoncourse/collections/MyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/nikastroganova/astoncourse/collections/MyLinkedList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +23,23 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "stroganova"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="3e2e23a6-cf2a-4df3-9609-dcd26133699c" />
+        <option name="url" value="https://github.com/stroganova/MyListHomework.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 6
@@ -62,7 +78,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713135208398</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fixed some warnings">
+      <option name="closed" value="true" />
+      <created>1713136601521</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713136601521</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -78,6 +102,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Realized MyArrayList and MyLinkedList" />
-    <option name="LAST_COMMIT_MESSAGE" value="Realized MyArrayList and MyLinkedList" />
+    <MESSAGE value="Fixed some warnings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed some warnings" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ClassCastException" package="java.lang" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

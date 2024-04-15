@@ -104,14 +104,18 @@ public class MyArrayList<T> implements Iterable<T> {
     static public <T extends Comparable<? super T>> void sort(Collection<T> collection) {
         T[] arr = (T[]) new Object[collection.size()];
         arr = collection.toArray(arr);
+        boolean hasSwapped = false;
         for(int i = 0; i < arr.length - 1; i ++) {
             for(int j = 0; j < arr.length - 1 - i; j++) {
                 if (arr[j].compareTo(arr[j + 1]) > 0) {
                     T temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
+                    hasSwapped = true;
                 }
             }
+            if (!hasSwapped)
+                break;
         }
         collection.clear();
         for(int i = 0; i < arr.length; i++) {
@@ -120,15 +124,20 @@ public class MyArrayList<T> implements Iterable<T> {
     }
 
     static public <T> void sort(Collection<T> collection, Comparator<? super T> comparator) {
-        T[] arr = (T[]) collection.toArray();
+        T[] arr =  (T[]) new Object[collection.size()];
+        arr = collection.toArray(arr);
+        boolean hasSwapped = false;
         for(int i = 0; i < arr.length - 1; i ++) {
             for(int j = 0; j < arr.length - 1 - i; j++) {
                 if (comparator.compare(arr[j], arr[j + 1]) > 0) {
                     T temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
+                    hasSwapped = true;
                 }
             }
+            if (!hasSwapped)
+                break;
         }
         collection.clear();
         for(int i = 0; i < arr.length; i++) {
